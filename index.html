@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Novi JS Quiz</title>
+		<link type="text/css" rel="stylesheet" href="css/style.css">
+		<script src="js/lib/ClearBlade.js"></script>
+		<script src="js/lib/mqttws31.js"></script>
+		<script src="js/viewframework.js"></script>
+		<script src="js/uiframework.js"></script>
+		<script src="js/controller.js"></script>
+	</head>
+	
+	<body>
+		<div class="title">
+			<div id="titleLeft" onClick="titleLeftClick()"></div>
+			<div id="titleCenter" onClick="titleCenterClick()">ClearBlade Tutorial</div>
+			<div id="titleRight" onClick="titleRightClick()"></div>
+		</div>
+
+		<div class="content">
+			<div class="label">
+				<div id="groupTopic"></div>
+			</div>
+
+			<!-- Login View, initial landing-->
+			<div id="loginView" class="hiddenView">
+				<div class="label">Authenticate</div>
+				<input class="fullInput" id="email"  placeholder="email" type="text" value="aallsbrook@clearblade.com"/>
+				<input class="fullInput" id="password" placeholder="password" type="password" value="password"/>
+				<button id="loginButton" onClick="loginEvent()">Login</button>
+				<div class="error" id="loginViewError"></div>
+			</div>
+
+			<!-- Successful Login view -->
+			<div id="loginSuccessView" class="hiddenView">
+				<div class="label">Authentication Success</div>
+				<div>
+					Click the "Start" button to start the quiz.
+				</div>
+				
+				<button id="startButton" onClick="startEvent()">Start</button>
+				<div class="error" id="startError"></div>
+	
+			</div>
+
+			<!-- Quiz view -->
+			<div id="quizView" class="hiddenView">
+				<div class="label">Quiz</div>
+
+				<!-- Holder Div for Question -->
+				<div id="questionPrompt"></div>
+
+				<form>
+					<input type="radio" id="radio1" name="radiogroup" value="1">
+					<label for="radio1" id="choice1"></label>
+					<input type="radio" id="radio2" name="radiogroup" value="2">
+					<label for="radio2" id="choice2"></label>
+					<input type="radio" id="radio3" name="radiogroup" value="3">
+					<label for="radio3" id="choice3"></label>
+				</form>
+
+				<button id="submitButton" onClick="submitEvent()">Next</button>
+				<div class="error" id="submitError"></div>
+	
+			</div>
+
+			<!-- Scoreboard view -->
+			<div id="scoreView" class="hiddenView">
+				<div class="label">Score</div>				
+				<div id="results"></div>
+
+				<button id="resetButton" onClick="resetEvent()">Reset</button>
+				<div class="error" id="resetError"></div>
+	
+			</div>
+		</div>
+	</body>
+	<script>
+		startup();
+	</script>
+</html>
